@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy | Proarh.4d Shop</title>
   <meta name="description" content="Privacy policy (GDPR) for the Proarh.4d shop, operated by PROIECTEARH 4D S.R.L.">
-  <meta name="theme-color" content="#fbf8f2">
+  <meta name="theme-color" content="#0e0e10">
   <link rel="icon" href="assets/favicon.ico" sizes="any">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/proarh4d.ro-512x512.png">
@@ -14,9 +14,16 @@
   <meta property="og:title" content="Privacy Policy | Proarh.4d Shop">
   <meta property="og:description" content="Privacy policy (GDPR) for the Proarh.4d shop, operated by PROIECTEARH 4D S.R.L.">
   <meta property="og:image" content="https://proarh4d.com/assets/proarh4d.ro-512x512.png">
+  <link rel="preload" href="assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/shop.css">
 </head>
 <body>
+  <div class="topbar">
+    <div class="wrap">
+      <span>Instant download after checkout &middot; Native Revit files</span>
+      <a href="mailto:office@proarh4d.com">office@proarh4d.com</a>
+    </div>
+  </div>
   <header class="top">
     <div class="wrap">
       <a class="brand" href="./">
@@ -24,19 +31,25 @@
         <span>Pro<b>arh.4d</b></span>
         <small>Shop</small>
       </a>
-      <a class="top-link" href="https://www.proarh4d.ro">Studio site &#8599;</a>
+      <nav class="mainnav" aria-label="Main">
+        <a href="index.html#catalog-section">Catalog</a>
+        <a href="index.html#categories">Categories</a>
+        <a href="index.html#how">How it works</a>
+        <a href="https://www.proarh4d.ro/portofoliu">Portfolio</a>
+      </nav>
+      <a class="top-link" href="https://www.proarh4d.ro">proarh4d.ro &#8599;</a>
     </div>
   </header>
 
-  <main>
+  <main class="page">
     <div class="wrap">
-      <a class="back" href="./">&larr; Back to catalog</a>
+      <a class="back" href="index.html#catalog-section">&larr; Back to catalog</a>
       <article class="legal-doc">
         <span class="eyebrow">GDPR legal framework</span>
         <h1>Privacy policy.</h1>
         <p class="meta">Last updated: November 2026 &middot; English version of the document published in Romanian at <a href="https://www.proarh4d.ro/politica-confidentialitate">proarh4d.ro/politica-confidentialitate</a>.</p>
         <h2><span>01</span> The data controller</h2>
-        <p>Personal data is processed by <strong>PROIECTEARH 4D S.R.L.</strong>, the economic operator that runs the architectural design and consultancy studio <strong>PROARH.4D</strong>, the <strong>proarh4d.ro</strong> platform and its English-language catalog at <strong>proarh4d.com</strong>, in accordance with Regulation (EU) 2016/679 (GDPR) and the applicable Romanian legislation. The database is hosted as a service (SaaS) on the supabase.com platform.</p>
+        <p>Personal data is processed by <strong>PROIECTEARH 4D S.R.L.</strong>, the economic operator behind the <strong>PROARH.4D</strong> brand, the <strong>proarh4d.ro</strong> platform and its English-language catalog at <strong>proarh4d.com</strong>, in accordance with Regulation (EU) 2016/679 (GDPR) and the applicable Romanian legislation. The database is hosted as a service (SaaS) on the supabase.com platform.</p>
         <div class="table-wrap"><table>
           <tr><th>Name</th><td>PROIECTEARH 4D S.R.L.</td></tr>
           <tr><th>Brand / sites</th><td>PROARH.4D &mdash; proarh4d.ro, proarh4d.com</td></tr>
@@ -102,17 +115,29 @@
 
   <footer>
     <div class="wrap">
-      <div>
+      <div class="foot-brand">
         <a class="brand" href="./"><img src="assets/arhi4d.png" alt=""><span>Pro<b>arh.4d</b></span></a>
-        <p>Architecture studio. Revit families and projects, ready to download.</p>
+        <p>Proiectearh 4D. Revit families and projects, ready to download.</p>
       </div>
-      <nav aria-label="Footer">
-        <a href="https://www.proarh4d.ro">Studio site</a>
+      <nav aria-label="Shop">
+        <h3>Shop</h3>
+        <a href="index.html#catalog-section">All products</a>
+        <a href="index.html?filter=free#catalog-section">Free downloads</a>
+        <a href="index.html?filter=project#catalog-section">Revit projects</a>
+        <a href="index.html?filter=family#catalog-section">Revit families</a>
+      </nav>
+      <nav aria-label="Company">
+        <h3>Company</h3>
+        <a href="https://www.proarh4d.ro">proarh4d.ro</a>
         <a href="https://www.proarh4d.ro/portofoliu">Portfolio</a>
-        <a href="mailto:contact@proarh4d.com">contact@proarh4d.com</a>
         <a href="terms.html">Terms</a>
         <a href="privacy.html">Privacy</a>
         <a href="https://www.proarh4d.ro/politica-cookie">Cookies</a>
+      </nav>
+      <nav aria-label="Contact">
+        <h3>Contact</h3>
+        <a href="mailto:bogdan.sotingeanu@proarh4d.com">bogdan.sotingeanu@proarh4d.com</a>
+        <a href="mailto:office@proarh4d.com">office@proarh4d.com</a>
       </nav>
       <div class="company">
         <strong>PROIECTEARH 4D S.R.L.</strong>
