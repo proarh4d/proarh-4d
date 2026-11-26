@@ -397,8 +397,31 @@ footer nav { display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: flex-s
 footer a { text-decoration: none; }
 footer a:hover { color: #fff; }
 footer .legal { flex-basis: 100%; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+footer .company { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 6px 22px; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.08); line-height: 1.7; letter-spacing: 0.08em; }
+footer .company strong { color: rgba(255, 255, 255, 0.8); font-weight: 600; }
+footer .company + .legal { padding-top: 18px; border-top: 0; }
 footer .legal img { height: 30px; width: auto; }
 footer .legal div { display: flex; gap: 12px; align-items: center; }
+
+/* ── Legal pages (terms, privacy) ───────────────────── */
+.legal-doc { max-width: 820px; margin: 28px auto 0; }
+.legal-doc h1 { font-size: clamp(30px, 5vw, 44px); }
+.legal-doc .meta { margin: 14px 0 0; color: var(--faint); font-size: 12px; }
+.legal-doc h2 { margin: 44px 0 12px; padding-top: 18px; border-top: 2px solid var(--ink); font-family: var(--serif); font-weight: 400; font-size: 22px; line-height: 1.25; }
+.legal-doc h2 span { display: block; margin-bottom: 4px; color: var(--gold); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.3em; }
+.legal-doc p, .legal-doc li { color: var(--muted); font-size: 13.5px; line-height: 1.75; }
+.legal-doc p { margin: 0 0 12px; }
+.legal-doc ul { margin: 0 0 12px; padding-left: 20px; }
+.legal-doc li { margin-bottom: 6px; }
+.legal-doc strong { color: var(--ink); }
+.legal-doc a { color: var(--ink); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.legal-doc .table-wrap { margin: 16px 0 18px; overflow-x: auto; border: 1px solid var(--line); background: var(--paper); }
+.legal-doc table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.legal-doc th, .legal-doc td { padding: 10px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); color: var(--muted); line-height: 1.6; }
+.legal-doc tr:last-child th, .legal-doc tr:last-child td { border-bottom: 0; }
+.legal-doc th { color: var(--ink); font-weight: 700; white-space: nowrap; }
+.legal-doc thead th { background: var(--cream); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; }
+@media (max-width: 560px) { .legal-doc th { white-space: normal; } }
 
 @media (max-width: 820px) {
   main { padding: 36px 0 56px; }
