@@ -93,9 +93,9 @@
 
   // Card de catalog: imagine mare, categorie, titlu, preț.
   function card(p) {
-    var thumb = el('div', { class: 'thumb' })
+    var thumb = el('div', { class: 'thumb duo' })
     if (p.imagine_url) thumb.appendChild(el('img', { src: p.imagine_url, alt: '', loading: 'lazy' }))
-    else thumb.textContent = 'No image available'
+    else { thumb.className = 'thumb'; thumb.textContent = 'No image available' }
     var off = discount(p)
     return el('a', { class: 'card', href: productUrl(p), 'aria-label': p.nume }, [
       isFree(p) ? el('span', { class: 'badge free', text: 'Free' }) : off ? el('span', { class: 'badge sale', text: '-' + off + '%' }) : null,
@@ -165,7 +165,7 @@
         var first = withImg.filter(function (p) { return !used[p.imagine_url] })[0] || withImg[0]
         if (first && k) used[first.imagine_url] = true
         var pic = first && k
-          ? el('div', { class: 'pic' }, [el('img', { src: first.imagine_url, alt: '', loading: 'lazy' })])
+          ? el('div', { class: 'pic duo' }, [el('img', { src: first.imagine_url, alt: '', loading: 'lazy' })])
           : el('div', { class: 'pic empty', text: String(items.length) })
         var b = el('button', { class: 'tile', type: 'button', 'aria-pressed': String(k === filter) }, [
           pic,
@@ -197,31 +197,33 @@
       function show(i) {
         current = i
         var p = picks[i]
-        var facts = el('ul', { class: 'facts' }, [
-          kindLabel(kind(p)) ? el('li', {}, [el('b', { text: kindLabel(kind(p)) })]) : null,
-          revitVersion(p) ? el('li', {}, [document.createTextNode('Revit '), el('b', { text: revitVersion(p) })]) : null,
-          el('li', {}, [el('b', { text: images(p).length + (images(p).length === 1 ? ' image' : ' images') })]),
-        ])
         var dots = el('div', { class: 'dots' }, picks.length > 1 ? picks.map(function (x, j) {
           var d = el('button', { type: 'button', 'aria-label': 'Show ' + shortName(x), 'aria-current': String(j === i) })
           d.addEventListener('click', function () { stop(); show(j) })
           return d
         }) : [])
+        var specs = el('dl', { class: 'specs' }, [
+          kindLabel(kind(p)) ? el('div', {}, [el('dt', { text: 'File type' }), el('dd', { text: kindLabel(kind(p)) })]) : null,
+          revitVersion(p) ? el('div', {}, [el('dt', { text: 'Revit' }), el('dd', { text: revitVersion(p) })]) : null,
+          el('div', {}, [el('dt', { text: 'Images' }), el('dd', { text: String(images(p).length) })]),
+        ])
         wrap.replaceChildren(
           el('div', { class: 'hero-grid' }, [
-            el('div', {}, [
+            el('div', { class: 'hero-text' }, [
               el('span', { class: 'eyebrow', text: 'Featured · ' + category(p) }),
               el('h1', { text: shortName(p) }),
+              priceNode(p),
+              el('span', { class: 'label', text: 'Description' }),
               el('p', { class: 'lead', text: p.descriere_scurta || '' }),
-              facts,
-              el('div', { class: 'hero-cta' }, [
-                el('a', { class: 'btn', href: productUrl(p), text: 'View product →' }),
-                priceNode(p),
-              ]),
               dots,
             ]),
-            el('a', { class: 'hero-media', href: productUrl(p), 'aria-label': p.nume }, [
+            el('a', { class: 'hero-media duo', href: productUrl(p), 'aria-label': p.nume }, [
               el('img', { src: p.imagine_url, alt: p.nume }),
+            ]),
+            el('div', { class: 'hero-side' }, [
+              specs,
+              el('a', { class: 'btn ghost', href: '#catalog-section', text: 'All products' }),
+              el('a', { class: 'btn', href: productUrl(p), text: 'View product' }),
             ]),
           ])
         )
@@ -308,7 +310,7 @@
       next.addEventListener('click', function () { go(at + 1) })
       stage.appendChild(prev); stage.appendChild(next); stage.appendChild(count)
       list.forEach(function (src, i) {
-        var b = el('button', { type: 'button', 'aria-label': 'Image ' + (i + 1) }, [el('img', { src: src, alt: '', loading: 'lazy' })])
+        var b = el('button', { class: 'duo', type: 'button', 'aria-label': 'Image ' + (i + 1) }, [el('img', { src: src, alt: '', loading: 'lazy' })])
         b.addEventListener('click', function () { go(i) })
         strip.appendChild(b)
       })
